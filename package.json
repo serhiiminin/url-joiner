@@ -1,0 +1,33 @@
+{
+  "name": "url-joiner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo test"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/serhiiminin/url-joiner.git"
+  },
+  "keywords": [
+    "url",
+    "join",
+    "joiner"
+  ],
+  "author": "Serhii Minin <minin.serhii@gmail.com>",
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  }
+}
