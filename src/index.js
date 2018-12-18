@@ -3,7 +3,7 @@ const DELIMITER_SEARCH_QUERY = '?';
 
 const parseSearchParams = searchString => Object.assign(
   {},
-  ...Array.from(new URLSearchParams(searchString).entries())
+  ...Array.from(new window.URLSearchParams(searchString).entries())
     .map(([key, value]) => ({ [key]: value }))
 );
 

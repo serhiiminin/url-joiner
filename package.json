@@ -1,15 +1,21 @@
 {
   "name": "url-joiner",
-  "version": "1.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "dist/index.js",
+  "module": "src/index.js",
   "scripts": {
-    "test": "echo test"
+    "build": "babel ./src --out-dir ./dist",
+    "prepublishOnly": "npm run test",
+    "test": "ava",
+    "tdd": "ava --watch"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
     "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0"
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "ava": "^1.0.1"
   },
   "files": [
     "dist"
@@ -29,5 +35,21 @@
     "presets": [
       "@babel/preset-env"
     ]
+  },
+  "ava": {
+    "require": [
+      "@babel/register",
+      "./setup-browser-env.js"
+    ]
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jasmine": true
+  },
+  "eslintConfig": {
+    "globals": {
+      "window": true
+    }
   }
 }
