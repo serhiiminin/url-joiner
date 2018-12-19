@@ -1,11 +1,12 @@
 {
   "name": "url-joiner",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "dist/index.js",
   "module": "src/index.js",
   "scripts": {
     "build": "babel ./src --out-dir ./dist",
+    "prepare": "npm run build",
     "prepublishOnly": "npm run test",
     "test": "ava",
     "tdd": "ava --watch"
