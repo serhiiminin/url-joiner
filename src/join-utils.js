@@ -20,7 +20,9 @@ const joinRoute = ({ pathname = '', search = '', paths = [], searchParams = {} }
     .join(DELIMITER_PATH);
   const updatedSearchParams = mergeSearchParams(search, searchParams);
 
-  return [updatedRoute, updatedSearchParams].join(DELIMITER_SEARCH_QUERY);
+  return [updatedRoute, updatedSearchParams]
+    .filter(Boolean)
+    .join(DELIMITER_SEARCH_QUERY);
 };
 
 export {

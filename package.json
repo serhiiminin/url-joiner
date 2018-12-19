@@ -1,10 +1,11 @@
 {
   "name": "url-joiner",
   "version": "0.0.3",
-  "description": "",
+  "description": "Join url, parse and merge url parts",
   "main": "dist/index.js",
   "module": "src/index.js",
   "scripts": {
+    "commit": "git-cz",
     "build": "babel ./src --out-dir ./dist",
     "prepare": "npm run build",
     "prepublishOnly": "npm run test",
@@ -16,7 +17,8 @@
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/register": "^7.0.0",
-    "ava": "^1.0.1"
+    "ava": "^1.0.1",
+    "browser-env": "^3.2.5"
   },
   "files": [
     "dist"
@@ -25,13 +27,13 @@
     "type": "git",
     "url": "git://github.com/serhiiminin/url-joiner.git"
   },
-  "keywords": [
-    "url",
-    "join",
-    "joiner"
-  ],
+  "keywords": ["url", "join", "joiner"],
   "author": "Serhii Minin <minin.serhii@gmail.com>",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/serhiiminin/url-joiner/issues"
+  },
+  "homepage": "https://github.com/serhiiminin/url-joiner#readme",
   "babel": {
     "presets": [
       "@babel/preset-env"
@@ -47,10 +49,5 @@
     "browser": true,
     "node": true,
     "jasmine": true
-  },
-  "eslintConfig": {
-    "globals": {
-      "window": true
-    }
   }
 }
