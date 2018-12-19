@@ -1,0 +1,7 @@
+const DELIMITER_PATH = '/';
+const DELIMITER_SEARCH_QUERY = '?';
+
+export {
+  DELIMITER_PATH,
+  DELIMITER_SEARCH_QUERY
+}
