@@ -1,3 +1,3 @@
 import browserEnv from 'browser-env';
 
-browserEnv(['window', 'document', 'navigator']);
+browserEnv(['window', 'document', 'navigator', 'URL']);
