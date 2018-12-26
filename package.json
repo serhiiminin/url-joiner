@@ -10,7 +10,8 @@
     "prepare": "npm run build",
     "prepublishOnly": "npm run test",
     "test": "ava",
-    "tdd": "ava --watch"
+    "tdd": "ava --watch",
+    "test-coverage": "nyc ava"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
@@ -27,7 +28,11 @@
     "type": "git",
     "url": "git://github.com/serhiiminin/url-joiner.git"
   },
-  "keywords": ["url", "join", "joiner"],
+  "keywords": [
+    "url",
+    "join",
+    "joiner"
+  ],
   "author": "Serhii Minin <minin.serhii@gmail.com>",
   "license": "ISC",
   "bugs": {
