@@ -1,6 +1,6 @@
 {
   "name": "url-joiner",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Join url, parse and merge url parts",
   "main": "dist/index.js",
   "module": "src/index.js",
@@ -19,7 +19,8 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/register": "^7.0.0",
     "ava": "^1.0.1",
-    "browser-env": "^3.2.5"
+    "browser-env": "^3.2.5",
+    "nyc": "^13.1.0"
   },
   "files": [
     "dist"
