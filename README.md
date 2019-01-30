@@ -1,8 +1,8 @@
-#URL-JOINER
+# URL-JOINER
 
 *Handy utils for merging and parsing url*
 
-##Installation
+## Installation
 
 ~~~
 npm i url-joiner --save
@@ -14,7 +14,7 @@ _or_
 yarn add url-joiner
 ~~~
 
-##Usage
+## Usage
 
 This package provides 3 functions that can be used for different purposes
 
