@@ -1,4 +1,4 @@
-import { DELIMITER_PATH, DELIMITER_SEARCH_QUERY } from './contants';
+import { DELIMITER_PATH, DELIMITER_SEARCH_QUERY } from './constants';
 import { mergeSearchParams } from './search-params';
 
 const joinUrl = ({ url = '', paths = [], searchParams = {} }) => {
