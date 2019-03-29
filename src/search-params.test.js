@@ -7,9 +7,9 @@ test("Parse search string to object", t => {
 });
 
 test("Merge search params to string", t => {
-  t.is(mergeSearch("", {}), "");
-  t.is(mergeSearch("name=david", {}), "name=david");
-  t.is(mergeSearch("", { name: "david" }), "name=david");
-  t.is(mergeSearch("name=david&surname=monad", { name: "nick" }), "name=nick&surname=monad");
-  t.is(mergeSearch("q=hello&name=david", { age: 8 }), "q=hello&name=david&age=8");
+  t.is(mergeSearch({}), "");
+  t.is(mergeSearch({}, "name=david"), "name=david");
+  t.is(mergeSearch({ name: "david" }), "name=david");
+  t.is(mergeSearch({ name: "nick" }, "name=david&surname=monad"), "name=nick&surname=monad");
+  t.is(mergeSearch({ age: 8 }, "q=hello&name=david"), "q=hello&name=david&age=8");
 });

@@ -59,15 +59,18 @@ parseSearch("name=james&surname=willis");
 // }
 ```
 
-**mergeSearch(search, params)**
+**mergeSearch(params, search)**
 
 ```javascript
 import { mergeSearch } from "url-joiner";
 
-mergeSearch("name=james&surname=willis", {
-  name: "ken",
-  age: "21"
-});
+mergeSearch(
+  {
+    name: "ken",
+    age: "21"
+  },
+  "name=james&surname=willis"
+);
 
 // 'name=ken&surname=willis&age=21'
 ```

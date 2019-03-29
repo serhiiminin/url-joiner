@@ -19,7 +19,7 @@ const stringifySearch = (params = {}) =>
     .map(param => param.join(DELIMITER_SEARCH_VALUES))
     .join(DELIMITER_SEARCH_PARAMS);
 
-const mergeSearch = (search = "", params = {}) =>
+const mergeSearch = (params = {}, search = "") =>
   Object.entries({
     ...parseSearch(search),
     ...params
