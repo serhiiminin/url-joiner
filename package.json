@@ -1,6 +1,6 @@
 {
   "name": "url-joiner",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "description": "Join url, parse and merge url parts",
   "main": "dist/index.js",
   "scripts": {
