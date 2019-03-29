@@ -1,6 +1,6 @@
 {
   "name": "url-joiner",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "description": "Join url, parse and merge url parts",
   "main": "dist/index.js",
   "module": "src/index.js",
@@ -22,7 +22,8 @@
     "nyc": "^13.1.0"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "repository": {
     "type": "git",
