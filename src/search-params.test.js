@@ -1,12 +1,15 @@
-import test from 'ava';
-import { parseSearchParams, mergeSearchParams } from './search-params';
+import test from "ava";
+import { parseSearch, mergeSearch } from "./search-params";
 
-const SEARCH_STRING = 'q=hello&name=dan';
-
-test('Parse search string', t => {
-  t.deepEqual(parseSearchParams(SEARCH_STRING), { q: 'hello', name: 'dan' });
+test("Parse search string to object", t => {
+  t.deepEqual(parseSearch(), {});
+  t.deepEqual(parseSearch("q=hello&name=david"), { q: "hello", name: "david" });
 });
 
-test('Merge search string', t => {
-  t.is(mergeSearchParams(SEARCH_STRING, { age: 8 }), 'q=hello&name=dan&age=8');
+test("Merge search params to string", t => {
+  t.is(mergeSearch("", {}), "");
+  t.is(mergeSearch("name=david", {}), "name=david");
+  t.is(mergeSearch("", { name: "david" }), "name=david");
+  t.is(mergeSearch("name=david&surname=monad", { name: "nick" }), "name=nick&surname=monad");
+  t.is(mergeSearch("q=hello&name=david", { age: 8 }), "q=hello&name=david&age=8");
 });

@@ -1,31 +1,20 @@
-import { DELIMITER_PATH, DELIMITER_SEARCH_QUERY } from './constants';
-import { mergeSearchParams } from './search-params';
+import { DELIMITER_PATH, DELIMITER_URL_PARTS } from "./constants";
 
-const joinUrl = ({ url = '', paths = [], searchParams = {} }) => {
-  const updatedUrl = new URL(url);
+const trimPath = (path = "") => path.replace(/^\/|\/$/g, "");
 
-  updatedUrl.search = mergeSearchParams(updatedUrl.search, searchParams);
-  updatedUrl.pathname = [updatedUrl.pathname, ...paths]
-    .map(path => path.replace(/\/*$/, ''))
-    .filter(Boolean)
-    .join(DELIMITER_PATH);
+const getUrlParts = (url = "") => {
+  const parts = url.split(DELIMITER_URL_PARTS);
+  const href = parts[0] || "";
+  const search = parts[1] || "";
 
-  return updatedUrl.toString();
+  return [href, search];
 };
 
-const joinRoute = ({ pathname = '', search = '', paths = [], searchParams = {} }) => {
-  const updatedRoute = [pathname, ...paths]
-    .map(path => path.replace(/\/*$/, ''))
+const joinUrl = (url = "/", search = "") => [url, search].filter(Boolean).join(DELIMITER_URL_PARTS);
+const joinPath = (url = "/", ...paths) =>
+  [url, ...paths]
     .filter(Boolean)
+    .map(trimPath)
     .join(DELIMITER_PATH);
-  const updatedSearchParams = mergeSearchParams(search, searchParams);
 
-  return [updatedRoute, updatedSearchParams]
-    .filter(Boolean)
-    .join(DELIMITER_SEARCH_QUERY);
-};
-
-export {
-  joinUrl,
-  joinRoute,
-}
+export { getUrlParts, joinUrl, joinPath };

@@ -1,73 +1,73 @@
-# URL-JOINER
+# url-joiner
 
-*Handy utils for merging and parsing url*
+_Handy utils for merging and parsing url_
 
 ## Installation
 
-~~~
+```
 npm i url-joiner --save
-~~~
+```
 
 _or_
 
-~~~
+```
 yarn add url-joiner
-~~~
+```
 
 ## Usage
 
-This package provides 3 functions that can be used for different purposes
+**getUrlParts(url)**
 
-1. __`parseSearchParams`__ accepts search query string 
-* search | string _('name=ken&surname=flatton')_
-  
-__Example__
 ```javascript
-parseSearchParams('name=ken&surname=flatton')
+import { getUrlParts } from "url-joiner";
 
-// => 
+getUrlParts("https://example?name=ken");
+
+// ['https://example', 'name=ken']
+```
+
+**joinUrl(url, search)**
+
+```javascript
+import { joinUrl } from "url-joiner";
+
+joinUrl("https://domain.name", "name=ken");
+
+// 'https://domain.name?name=ken'
+```
+
+**joinPath(url, ...paths)**
+
+```javascript
+import { joinPath } from "url-joiner";
+
+joinPath("https://domain.name", "users", "id", "preview");
+
+// 'https://domain.name/users/id/preview'
+```
+
+**parseSearch(search)**
+
+```javascript
+import { parseSearch } from "url-joiner";
+
+parseSearch("name=james&surname=willis");
+
 // {
-//  name: 'ken',
-//  surname: 'flatton',
+//   name: 'james',
+//   surname: 'willis',
 // }
 ```
 
-2. __`joinUrl`__ accepts an object with configuration
+**mergeSearch(search, params)**
 
-* url | string, _`https://domain.name`_
-* paths | array, _`['users', 'id']`_
-* searchParams | object _`{ sortBy: 'name' }`_
- 
-__Example__
- 
 ```javascript
- joinUrl({
-  url: 'https://domain.name',
-  paths: ['users', 'id'],
-  searchParams: { 
-    sortBy: 'name' 
-  }
- })
-// => https://domain.name/users/id?sortBy=name
-```
+import { mergeSearch } from "url-joiner";
 
-3. __`joinRoute`__ accepts an object with configuration
+mergeSearch("name=james&surname=willis", {
+  name: "ken",
+  age: "21"
+});
 
-* pathname | string, _(`users/`)_ 
-* search | string, _(`name=dan`)_ 
-* paths | array, _(`['all']`)_
-* searchParams | object _(`{ sortBy: 'name' }`)_
- 
- __Example__
- 
- ```javascript
- joinRoute({
-  pathname: 'users',
-  search: 'name=dan',
-  paths: ['all'],
-  searchParams: { 
-    sortBy: 'name' 
-  }
- })
-// => users/all?name=dan&sortBy=name
+// 'name=ken&surname=willis&age=21'
 ```

@@ -1,9 +1,8 @@
 {
   "name": "url-joiner",
-  "version": "1.0.0",
+  "version": "0.0.7",
   "description": "Join url, parse and merge url parts",
   "main": "dist/index.js",
-  "module": "src/index.js",
   "scripts": {
     "build": "babel ./src --out-dir ./dist",
     "prepare": "npm run build",
@@ -49,6 +48,9 @@
     "require": [
       "@babel/register",
       "./setup-browser-env.js"
+    ],
+    "sources": [
+      "!dist/**/*"
     ]
   },
   "env": {

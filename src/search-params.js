@@ -1,23 +1,30 @@
-const parseSearchParams = (searchQueryString = '') =>
+import { DELIMITER_SEARCH_PARAMS, DELIMITER_SEARCH_VALUES } from "./constants";
+
+const parseSearch = (search = "") =>
   Object.assign(
     {},
-    ...Array.from(new window.URLSearchParams(searchQueryString).entries())
-      .map(([key, value]) => ({ [key]: value }))
+    ...search
+      .split(DELIMITER_SEARCH_PARAMS)
+      .filter(Boolean)
+      .map(param => {
+        const [key, value] = param.split(DELIMITER_SEARCH_VALUES);
+        return {
+          [key]: value
+        };
+      })
   );
 
-const mergeSearchParams = (searchQueryString = '', params = {}) =>
+const stringifySearch = (params = {}) =>
   Object.entries(params)
-    .reduce((acc, [key, value]) => {
-        if (value) {
-          acc.set(key, value);
-        }
-        return acc;
-      },
-      new window.URLSearchParams(searchQueryString)
-    )
-    .toString();
+    .map(param => param.join(DELIMITER_SEARCH_VALUES))
+    .join(DELIMITER_SEARCH_PARAMS);
 
-export {
-  parseSearchParams,
-  mergeSearchParams,
-};
+const mergeSearch = (search = "", params = {}) =>
+  Object.entries({
+    ...parseSearch(search),
+    ...params
+  })
+    .reduce((acc, [key, value]) => [...acc, stringifySearch({ [key]: value })], [])
+    .join(DELIMITER_SEARCH_PARAMS);
+
+export { parseSearch, mergeSearch };
